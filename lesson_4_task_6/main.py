@@ -20,15 +20,14 @@ def test_admin_cabinet(driver):
     driver.find_element(By.NAME, "password").send_keys("admin")
     driver.find_element(By.NAME, "login").click()
 
-    links_in_menu = driver.find_elements(By.CSS_SELECTOR, "#box-apps-menu a")
-    page_urls = [element.get_attribute('href') for element in links_in_menu]
+    count_links_in_menu = len(driver.find_elements(By.CSS_SELECTOR, "#box-apps-menu li"))
 
-    for url in page_urls:
-        driver.get(url)
+    for url in range(count_links_in_menu):
+        link = (driver.find_element(By.CSS_SELECTOR, "#box-apps-menu li#app-:nth-child({})".format(url+1)))
+        link.click()
         are_elements_present(driver, By.TAG_NAME, "h1")
-        sub_link_in_menu = driver.find_elements(By.CSS_SELECTOR, ".docs a")
-        sub_link_urls = [link.get_attribute('href') for link in sub_link_in_menu]
-        for sub_url in sub_link_urls:
-            if url != sub_url:
-                driver.get(sub_url)
+        count_sub_link_in_menu = len(driver.find_elements(By.CSS_SELECTOR, ".docs li"))
+        for sub_url in range(count_sub_link_in_menu):
+                sub_link = (driver.find_element(By.CSS_SELECTOR, ".docs li:nth-child({})".format(sub_url + 1)))
+                sub_link.click()
                 are_elements_present(driver, By.TAG_NAME, "h1")
