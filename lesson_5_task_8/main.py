@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+
 @pytest.fixture
 def driver(request):
     driver = webdriver.Chrome()
@@ -60,62 +61,3 @@ def test_countries_sorting_checking(driver):
         print("\nThe countries list is not sorted")
 
     zone_sorting(driver, countries_with_zones)
-
-
-
-
-
-
-
-
-
-    # all_countries_names = (list(map(lambda x: x.text, all_countries)))
-    # sorted_countries = sorted(all_countries_names)
-    #
-    # print("\nOrdinary list: ", all_countries_names)
-    # print("\nSorted list: ", sorted_countries)
-    #
-    # if all_countries_names == sorted_countries:
-    #     print("Sorting is correct")
-    # else:
-    #     print("The list is not sorted")
-    #
-    # all_zones = table.find_elements(By.CSS_SELECTOR, "td:nth-child(6)")
-    # all_zones_count = (list(map(lambda x: x.text, all_zones)))
-    # for zone in all_zones_count:
-    #     if int(zone) > 0:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #
-    # count_most_popular_ducks = len(driver.find_elements(By.CSS_SELECTOR, "#box-most-popular .product"))
-    # print("\nThe most popular ducks count: ", count_most_popular_ducks)
-    # for item in range(count_most_popular_ducks):
-    #     duck = driver.find_element(By.CSS_SELECTOR, ".product:nth-child({})".format((item + 1)))
-    #     are_elements_present(duck, By.CSS_SELECTOR, ".sticker")
-    #
-    # count_campaigns_ducks = len(driver.find_elements(By.CSS_SELECTOR, "#box-campaigns .product"))
-    # print("\nCampaigns ducks count: ", count_campaigns_ducks)
-    # for item in range(count_campaigns_ducks):
-    #     duck = driver.find_element(By.CSS_SELECTOR, ".product:nth-child({})".format((item + 1)))
-    #     are_elements_present(duck, By.CSS_SELECTOR, ".sticker")
-    #
-    # count_latest_ducks = len(driver.find_elements(By.CSS_SELECTOR, "#box-latest-products .product"))
-    # print("\nThe latest ducks count: ", count_latest_ducks)
-    # for item in range(count_latest_ducks):
-    #     duck = driver.find_element(By.CSS_SELECTOR, ".product:nth-child({})".format((item + 1)))
-    #     are_elements_present(duck, By.CSS_SELECTOR, ".sticker")
