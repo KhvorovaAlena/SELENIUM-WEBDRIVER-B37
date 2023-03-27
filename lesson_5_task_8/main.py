@@ -27,7 +27,7 @@ def zone_sorting(driver, countries_with_zones):
         zones = list()
 
         for row in range(all_zones-2):
-            zone_name = (driver.find_element(By.XPATH, "//*[@id='table-zones']/tbody/tr[{}]/td[3]/input".format(row + 2))).get_attribute("value")
+            zone_name = (driver.find_element(By.XPATH, "//*[@id='table-zones']/tbody/tr[{}]/td[3]".format(row + 2))).get_attribute("textContent")
             zones.append(zone_name)
 
         sorted_zones_list = sorted(zones)
