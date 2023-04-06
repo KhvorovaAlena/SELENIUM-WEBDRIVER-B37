@@ -69,21 +69,3 @@ def test_windows_opening(driver):
             driver.switch_to.window(new_window)
             driver.close()
             driver.switch_to.window(main_window)
-
-
-
-
-
-
-
-    # main_window = driver.current_window_handle
-    # old_windows = driver.window_handles
-    # link.click()  # открывает новое окно
-    # # ожидание появления нового окна,
-    # # идентификатор которого отсутствует в списке oldWindows,
-    # # остаётся в качестве самостоятельного упражнения
-    # new_window = wait.until(there_is_window_other_than(old_windows))
-    # driver.switch_to_window(new_window)
-    # # ...
-    # driver.close()
-    # driver.switch_to_window(main_window)
